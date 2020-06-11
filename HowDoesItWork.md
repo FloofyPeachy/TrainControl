@@ -16,7 +16,7 @@ The local signal server is where the trackside signals are at and interfaced wit
 **W-MTC Communications Server**: This is where W-MTC messages are received from a radio and sent to the server, or vice versa. 
 
 ## Communication
-The signals communicate with Rednet in ComputerCraft, and Minitel in OpenComputers. They have protocols, as follows:
+The system communicates with Rednet in ComputerCraft, and Minitel in OpenComputers. They have protocols, as follows:
 
 **HelloPing** Used on startup, sent from the server.
 
@@ -36,3 +36,32 @@ The signals communicate with Rednet in ComputerCraft, and Minitel in OpenCompute
 
 **SendWirelessMTC** Sent from main signal servers, provided with a W-MTC message.
 
+Also btw, will they be interoperable between OpenComputers and ComputerCraft? Maybe soon, although I don't think anyone will be using it.
+
+## Signal Numbers to Letters
+
+**0**: Line is clear.
+
+**1**: Blinking yellow. The next signal is yellow.
+
+**2**: Yellow. The next signal is red.
+
+**3**: Red. The block ahead is occupied and you should stop.
+
+## General Operations
+First, it starts with the main signal server. It sends to all of the local signal servers (or W-MTC Communications Servers) on startup, a  **HelloPing** to make sure that they are all connected. If not, then the startup process aborts and TrainControl is not started.
+
+If it does go through however, then it starts listening for events.
+
+When a `redstone_changed` event happens from the local signal servers, locally, it sets the aspect to either `0` or `3`. It then sends a **SignalUpdate** to the main signal server.
+
+It gets processed, and does a number of things, like deciding aspects. If there are any yellow/blinking yellow signals, they get sent to their local signal servers using **UpdateSignal**, unless they are from the original signal server that the update was sent from, in that case, it just updates what it's going to send.
+
+Finally, it sends a **UpdateSignalAll** to the signal server that sent the **SignalUpdate**, with information like the signal aspects to set and speed limits for standard MTC.
+
+Once the signal server receives the **UpdateSignalAll**, it updates the signal aspects, whether by using Aspect Controller Blocks (made by yours truly), or some other way. 
+
+With W-MTC messages, they are sent to the W-MTC Communications Server, then processed in the main server, then sent back.
+
+## In conclusion..
+~~My signaling system is really cool and its' the best. :sunglasses:~~ My signaling system is kinda complicated but it works really well and I hope more people will use it soon.
