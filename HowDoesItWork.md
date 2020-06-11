@@ -53,7 +53,7 @@ First, it starts with the main signal server. It sends to all of the local signa
 
 If it does go through however, then it starts listening for events.
 
-When a `redstone_changed` event happens from the local signal servers, locally, it sets the aspect to either `0` or `3`. It then sends a **SignalUpdate** to the main signal server.
+When a `redstone_changed` event happens from the local signal servers, locally, it sets the aspect to either `0` or `3`. It then sends a **SignalUpdate** to the main signal server. The signal input can come from anywhere, Railcraft Recievers, wire, wireless redstone, it doesn't really matter that much where it comes from.
 
 It gets processed, and does a number of things, like deciding aspects. If there are any yellow/blinking yellow signals, they get sent to their local signal servers using **UpdateSignal**, unless they are from the original signal server that the update was sent from, in that case, it just updates what it's going to send.
 
