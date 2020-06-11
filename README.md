@@ -18,3 +18,5 @@ traincontrol <log/gui/nothing>
 I like contributions! Contributions are welcome. Just make sure that they are in push requests and they don't suck.
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+Oh, and please, give me credit for the original code. I know, crazy, but just please do. Any violationers will get their cheeks clapped >:(
