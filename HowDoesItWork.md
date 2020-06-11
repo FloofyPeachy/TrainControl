@@ -36,7 +36,7 @@ The system communicates with Rednet in ComputerCraft, and Minitel in OpenCompute
 
 **SendWirelessMTC** Sent from main signal servers, provided with a W-MTC message.
 
-Also btw, will they be interoperable between OpenComputers and ComputerCraft? Maybe soon, although I don't think anyone will be using it.
+Also btw, will they be interoperable between OpenComputers and ComputerCraft? Maybe soon, although I don't think anyone will be using it. Potientally, if I make an "interoperative" version of TrainControl, that uses standard OpenComputer modems and creates rednet messages.
 
 ## Signal Numbers to Letters
 
