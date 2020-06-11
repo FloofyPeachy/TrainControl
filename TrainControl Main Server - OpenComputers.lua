@@ -49,7 +49,7 @@ splashScreenContainer:addChild(GUI.label(1,1, leWorkspace.width, leWorkspace.hei
 splashScreenContainer:addChild(GUI.label(1,1, leWorkspace.width, leWorkspace.height, 0xFFFFFF, version)):setAlignment(GUI.ALIGNMENT_HORIZONTAL_RIGHT, GUI.ALIGNMENT_VERTICAL_BOTTOM)
 
 
-local webhookURL = "https://ptb.discordapp.com/api/webhooks/709542859488886797/YsuHiq5u8bbd3aHsP0_bEcSdUkIWIO5GzxBXiqLNe06ZXKwSGwah7yIpcMK1y9UGGEMq"
+local webhookURL = ""
 --Required Functions
 
 local function read_file(path)
